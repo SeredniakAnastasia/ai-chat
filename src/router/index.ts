@@ -3,9 +3,10 @@ import { setupLayouts } from 'virtual:generated-layouts';
 import ChatView from '../components/ChatView.vue';
 import IndexPage from '@/pages/index.vue';
 import { useChatStore } from '@/stores/app';
+import type { ChatRouteParams } from '@/types';
 
 const routes = [
-  { path: '/', component: IndexPage },
+  { path: '/', name: 'home', component: IndexPage },
   { path: '/chat/:id', name: 'chat', component: ChatView },
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ];
@@ -16,10 +17,10 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.name === 'chat') {
+  if (to.path.startsWith('/chat/')) {
     const chatStore = useChatStore();
-    const chatId = to.params.id;
-    if (!chatStore.chats[chatId]) {
+    const { id } = to.params as ChatRouteParams;
+    if (!chatStore.chats[id]) {
       return next({ path: '/' });
     }
   }

@@ -4,7 +4,7 @@
       <v-list-item
         link
         :title="chat.name"
-        :subtitle="truncate(chat?.messages.at(-1)?.content)"
+        :subtitle="truncate(chat?.messages[chat.messages.length - 1]?.content)"
         :to="{ name: 'chat', params: { id } }"
         class="pa-4"
       />

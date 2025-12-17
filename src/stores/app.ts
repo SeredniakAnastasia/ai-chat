@@ -18,6 +18,7 @@ export const useChatStore = defineStore('chat', () => {
     return newChatId;
   };
   const addMessageToChat = (id: string, message: MessageInterface) => {
+    if (!chats[id]) return;
     chats[id].messages.push({
       id: crypto.randomUUID(),
       ...message,

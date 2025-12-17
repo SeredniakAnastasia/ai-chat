@@ -22,7 +22,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { defineProps, defineEmits } from 'vue';
   import type { Ref } from 'vue';
   import type { VForm } from 'vuetify/components';
 
@@ -41,7 +40,7 @@
   }>();
 
   const modelValue: Ref<string> = ref(props.modelValue);
-  const formRef: Ref<VForm> = ref();
+  const formRef = ref<VForm | null>(null);
 
   watch(modelValue, (val: string) => emit('update:modelValue', val));
 

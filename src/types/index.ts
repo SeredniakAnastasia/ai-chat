@@ -50,9 +50,14 @@ interface MessageInterface {
   role: MessageRoleType;
 }
 
+interface ChatRouteParams {
+  id: string;
+}
+
 enum MessageRoleType {
   USER = 'user',
   ASSISTANT = 'assistant',
 }
 
-export { AssistantResponseInterface, ChatStoreInterface, MessageInterface, MessageRoleType };
+export type { AssistantResponseInterface, ChatStoreInterface, MessageInterface, ChatRouteParams };
+export { MessageRoleType };

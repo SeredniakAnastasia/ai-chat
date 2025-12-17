@@ -13,7 +13,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { defineProps } from 'vue';
   import { MessageRoleType } from '@/types/index';
 
   interface MessageProps {

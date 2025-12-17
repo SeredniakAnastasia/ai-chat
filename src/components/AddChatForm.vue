@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { Ref, defineEmits } from 'vue';
+  import type { Ref } from 'vue';
   import BaseForm from '@/components/BaseForm.vue';
   import { useChatStore } from '@/stores/app';
 
@@ -18,7 +18,7 @@
 
   const handleSubmit = (): void => {
     const chatId: string = createNewChat(chatName.value);
-    router.push({ name: 'chat', params: { id: chatId } });
+    router.push(`/chat/${chatId}`);
     emit('onClose');
   };
 </script>
