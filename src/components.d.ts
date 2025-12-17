@@ -11,10 +11,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AddChatForm: typeof import('./components/AddChatForm.vue')['default']
-    AddChatModal: typeof import('./components/AddChatModal.vue')['default']
+    AddChatBlock: typeof import('./components/AddChatBlock.vue')['default']
     AppHeader: typeof import('./components/AppHeader.vue')['default']
-    BaseForm: typeof import('./components/BaseForm.vue')['default']
     ChatView: typeof import('./components/ChatView.vue')['default']
     Message: typeof import('./components/Message.vue')['default']
     MessageList: typeof import('./components/MessageList.vue')['default']
@@ -22,5 +20,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SendInputBox: typeof import('./components/SendInputBox.vue')['default']
     Sidebar: typeof import('./components/Sidebar.vue')['default']
+    Toast: typeof import('./components/Toast.vue')['default']
   }
 }

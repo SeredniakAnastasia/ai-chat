@@ -3,9 +3,11 @@ import { MessageRoleType } from '@/types';
 import { sendMessage } from '@/api';
 import type { Ref } from 'vue';
 import { useChatStore } from '@/stores/app';
+import { useUiStore } from '@/stores/uiStore';
 
 export function useFetchResponse(message: Ref<string>) {
   const { chats, addMessageToChat } = useChatStore();
+  const ui = useUiStore();
   const route = useRoute();
 
   const isLoading: Ref<boolean> = ref(false);
@@ -25,7 +27,7 @@ export function useFetchResponse(message: Ref<string>) {
 
       addMessageToChat(currentChatId.value, assistantMessage);
     } catch (e) {
-      console.error(e);
+      ui.openToast('Something went wrong. Try later.');
     } finally {
       isLoading.value = false;
     }

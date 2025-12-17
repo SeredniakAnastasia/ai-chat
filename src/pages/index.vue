@@ -1,9 +1,11 @@
 <template>
   <v-container fluid class="fill-height d-flex flex-column justify-center align-center">
-    <h2 class="text-h4 font-weight-medium mb-2">
+    <h2 class="text-h4 font-weight-medium mb-2 text-center">
       {{ headerText }}
     </h2>
-    <p class="text-grey">Click the button in the top-left corner to create the new one</p>
+    <p class="text-grey text-center">
+      Click the button in the top-left corner to create the new one
+    </p>
   </v-container>
 </template>
 
@@ -14,6 +16,6 @@
   const { hasChats } = storeToRefs(chatStore);
 
   const headerText = computed<string>(() =>
-    hasChats ? 'Choose any chat from the sidebar on the left' : 'Create your first chat'
+    hasChats.value ? 'Choose any chat from the sidebar on the left' : 'Create your first chat'
   );
 </script>

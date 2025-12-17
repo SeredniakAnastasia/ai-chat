@@ -39,6 +39,7 @@ interface AssistantChoiceInterface {
 interface ChatStoreInterface {
   [id: string]: {
     name: string;
+    isAnonymous?: boolean;
     messages: MessageInterface[];
   };
 }

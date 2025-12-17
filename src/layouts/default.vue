@@ -3,6 +3,7 @@
   <v-main>
     <sidebar v-if="hasChats" />
     <router-view />
+    <toast />
   </v-main>
 </template>
 

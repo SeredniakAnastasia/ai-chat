@@ -4,7 +4,7 @@
       <div class="d-flex justify-space-between align-center w-full">
         <div class="d-flex align-center ga-4">
           <v-btn v-if="mobile" @click="toggleNav" icon="mdi-menu"></v-btn>
-          <add-chat-modal />
+          <add-chat-block />
         </div>
         <div class="d-flex align-center ga-4">
           <v-btn @click="theme.toggle()" :icon="themeIcon"></v-btn>
@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts" setup>
-  import AddChatModal from '@/components/AddChatModal.vue';
   import { useDisplay, useTheme } from 'vuetify';
   import { useUiStore } from '@/stores/uiStore';
 
