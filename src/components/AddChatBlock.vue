@@ -7,8 +7,8 @@
   ></v-btn>
   <v-btn
     variant="outlined"
-    append-icon="mdi-plus"
-    text="Anonymous chat"
+    append-icon="mdi-incognito"
+    text="Secret chat"
     @click="() => handleSubmit(true)"
   ></v-btn>
 </template>
