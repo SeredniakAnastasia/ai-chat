@@ -4,8 +4,9 @@ import { sendMessage } from '@/api';
 import type { Ref } from 'vue';
 import { useChatStore } from '@/stores/app';
 import { useUiStore } from '@/stores/uiStore';
+import { truncate } from '@/utils';
 
-export function useFetchResponse(message: Ref<string>) {
+export function useMessages(message: Ref<string>) {
   const { chats, addMessageToChat } = useChatStore();
   const ui = useUiStore();
   const route = useRoute();
@@ -19,6 +20,10 @@ export function useFetchResponse(message: Ref<string>) {
       isLoading.value = true;
       const chat = chats[currentChatId.value];
       if (!chat) return;
+
+      if (chat.messages.length === 1 && chat.name === 'New Chat') {
+        chat.name = truncate(message.value, 25);
+      }
 
       const res = await sendMessage(chat.messages);
 

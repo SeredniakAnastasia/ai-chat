@@ -18,11 +18,11 @@
   import type { Ref } from 'vue';
   import type { VForm } from 'vuetify/components';
   import { ref } from 'vue';
-  import { useFetchResponse } from '@/composables/useFetchResponse';
+  import { useMessages } from '@/composables/useMessages';
 
   const message: Ref<string> = ref('');
 
-  const { isLoading, handleSubmit } = useFetchResponse(message);
+  const { isLoading, handleSubmit } = useMessages(message);
 
   const onSubmit = () => {
     if (!message.value) return;
